@@ -4,7 +4,6 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from .calendar import EventCalendar
-
 from .models import Event
 
 """ Debug all
@@ -17,4 +16,6 @@ def index(request):
     if not ev_cal.load_for_week():
         #TODO appropriate error response
         return HttpResponse("Failed to load events") 
-    return HttpResponse(ev_cal)
+    return render(request, "app_0/index.html", {
+        "calendar" : ev_cal.days
+    })

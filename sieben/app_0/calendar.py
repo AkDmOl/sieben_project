@@ -3,7 +3,8 @@ from datetime import timedelta
 from .models import events_on
 from .date_utils import days_range
 
-# Event Calendar handles dict of (day: [events]) pairs  
+# Event Calendar handles dict of (day: [events]) pairs
+# TODO manage encapsulation  
 class EventCalendar:
     def __init__(self):
         self.days = {}
@@ -17,12 +18,7 @@ class EventCalendar:
         for d in days_range(today, future):
             #TODO if error/exception appears return False
             #more user-friendly approach at first
-            events_str = []
-            for ev_mod in events_on(d):
-                events_str.append(str(ev_mod) + "<br>")
-            
-            #TODO switch to self.days[d] = events_on(d).values()
-            self.days[d] = events_str
+            self.days[d] = events_on(d).values()
         return True
     
     def load_for_week(self):
