@@ -1,0 +1,51 @@
+header {
+    width: 100%;
+
+    /*overlap scroll*/
+    position: fixed;
+    background-color: #fff;
+    z-index: 100;
+
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+
+    border: 3px solid black;
+}
+
+.calendar {
+    /* fix first event overlap*/
+    padding-top: 3.5rem;
+}
+
+.day_program {
+    margin-bottom: 4rem;
+}
+
+.date {
+    width: 100%;
+
+    padding-top: 10px;
+    padding-left: 16px;
+    margin-right: auto;
+
+    border-bottom: 3px solid #000;
+    margin-bottom: 15px;
+
+    background-color: #fff;
+    position: sticky; top: 50px;
+
+    z-index: 10;
+    transition: .5s top ease;
+}
+
+.event {
+    width: 100%;
+
+    padding-left: 16px;
+    margin-right: auto;
+
+    padding-bottom: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #000;
+}

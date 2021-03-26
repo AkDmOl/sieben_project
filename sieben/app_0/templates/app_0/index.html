@@ -11,18 +11,32 @@
         <title>Sieben Project</title>
     </head>
     <body>
-        {% for day, events in calendar.items %}
-            <div class="day_program">
-                <div class="container-fluid" id="date">
-                    <!-- https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
-                    {{ day|date:"D d" }}
-                </div>
-                {% for event in events %}
-                    <div class="container-fluid" id="event">
-                        {{ event.place_name }}
+        <header>
+            <h1>Sieben Project</h1>
+        </header>
+
+        <section class="calendar">
+            {% for day, events in calendar.items %}
+                <div class="day_program">
+                    <div class="date">
+                        <!-- https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+                        <h1> {{ day|date:"D d" }} </h1>
                     </div>
-                {% endfor %}
-            </div>
-        {% endfor %}
+                    {% for event in events %}
+                        <div class="event">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h2> EVENT NAME </h2>
+                                    <h4> {{ event.start_date|date:"d F Y" }} - {{ event.end_date|date:"d F Y" }}</h4>
+                                </div>
+                                <div class="col-6">                            
+                                    <h3> {{ event.place_name }} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </section>
     </body>
 </html>
